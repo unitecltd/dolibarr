@@ -1,1 +1,18 @@
-<!doctype html><meta charset="utf-8"><title>ESIN Package</title><h1>ESIN Family Package</h1><p>Source package for document generation.</p>
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ESIN Family Sovereignty Planning System</title>
+<style>body{font-family:Arial,sans-serif;max-width:1100px;margin:24px auto;padding:0 20px;color:#202020}h1{border-bottom:3px solid #333;padding-bottom:12px}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}button{padding:12px 18px;border:1px solid #333;background:#eee;font-weight:700;cursor:pointer}button:hover{background:#ddd}.panel{border:1px solid #777;padding:14px;margin:14px 0}#status{font-family:Consolas,monospace;white-space:pre-wrap}.ok{background:#e8f4e8}.warn{background:#fff7d6}</style>
+<script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="data/metadata.js"></script>
+<script src="data/family_sections.js"></script>
+<script src="data/health_sections.js"></script>
+<script src="data/reference_tables.js"></script>
+<script src="data/support_texts.js"></script>
+<script defer src="app.js"></script>
+</head><body><h1>ESIN Family Sovereignty Planning System</h1>
+<div class="panel ok"><b>Комплект 23.06.2026</b><br>DOCX, XLSX, CSV, SQL, Codex Knowledge, UI Specification и Acceptance Tests создаются локально в браузере. Данные не отправляются на сервер.</div>
+<div class="bar"><button id="all">Скачать полный ZIP</button><button id="family">Скачать ТЗ нового модуля DOCX</button><button id="health">Скачать корректировочное ТЗ Health DOCX</button></div>
+<div class="panel warn">Значения со статусом seed_requires_validation являются импортными шаблонами и требуют проверки источника перед медицинским или хозяйственным применением.</div><div id="status" class="panel">Готово к формированию.</div></body></html>
