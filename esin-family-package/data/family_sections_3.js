@@ -1,0 +1,23 @@
+window.FAMILY_SECTIONS.push(
+{h:1,t:'13. ProVision и способы покрытия'},
+{p:'EFSP формирует долгосрочную потребность, а ProVision выбирает способ покрытия: домашний или складской остаток, внутреннее перемещение, выращивание, собственное производство, производство другим узлом, внешняя закупка, аренда, допустимая замена, перенос или отказ.'},
+{p:'Потребность содержит Master Item UUID, quantity, UOM, need_start, deadline, priority, source_trace, allowed_substitutions, storage_requirement, quality_constraints и budget_source. ProVision возвращает coverage_mix, money_need, tasks, participating_nodes, affected_stocks, risk, approvals и rejected_alternatives.'},
+{h:1,t:'14. Финансы и семейный капитал'},
+{p:'План включает регулярные расходы, здоровье, питание, образование, жилье, ремонт, крупные события, ферму, технику, страховой резерв, уход, новые домохозяйства и наследуемую инфраструктуру. Деньги семьи и юридических лиц разделяются. Передача ресурса компании семье оформляется законной операцией через Orbis и учетные модули.'},
+{bullets:['Baseline — базовые доходы и цены.','Conservative — снижение дохода и рост затрат.','Income loss — временная потеря источника средств.','Price shock — резкий рост стоимости критических ресурсов.','Crop failure — снижение урожая и рост закупки.','Medical event — резерв времени и средств.','Expansion — новое жилье, хозяйство или домохозяйство.']},
+{h:1,t:'15. Межпоколенческая устойчивость'},
+{p:'Система оценивает capacity_people_current, capacity_people_scenario, housing_headroom, food_headroom, storage_headroom, water_headroom, energy_headroom, labor_headroom, education_reserve, care_reserve, financial_runway, land_rotation_reserve и critical_dependency_count.'},
+{p:'Сценарий не считается устойчивым, если высокий общий балл скрывает нулевой запас по воде, жилью, медицинской доступности, хранению или денежной ликвидности.'},
+{h:1,t:'16. Риски и устойчивость'},
+{p:'Реестр охватывает здоровье и уход, потерю дохода, инфляцию, неурожай, болезни растений и животных, отказ воды, электричества, отопления и хранения, дефицит труда, логистику, пожар, аварии, конфликт календаря, потерю данных, правовой риск, приватность и ошибку единицы измерения.'},
+{p:'Для риска хранятся probability, impact, detectability, lead_time, mitigation, owner, trigger, residual_risk и evidence.'},
+{h:1,t:'17. Расчетный движок'},
+{bullets:['Зафиксировать scenario_version и calculation_date.','Получить состав домохозяйств и семейный граф.','Построить возрастную линию по каждому горизонту.','Применить подтвержденные события и сценарные окна.','Рассчитать потребности Health, образования, жилья, времени и финансов.','Агрегировать потребности без раскрытия закрытых причин.','Рассчитать ресурсы и мощности.','Сформировать дефициты и избытки.','Передать потребности в ProVision.','Рассчитать риск, резерв и устойчивость.','Подготовить альтернативы и Decision Packet.','После подтверждения создать проекты, задачи и календарь.','Собирать факт и пересчитывать через новую версию.']},
+{p:'Допускаются линейное и целочисленное программирование и эвристики, но результат должен быть воспроизводимым. Hard constraints не превращаются в мягкий штраф. Целевые функции: стоимость, автономность, труд, питательная полноценность, риск и использование собственных ресурсов.'},
+{h:1,t:'18. Сущности БД'},
+{p:'Минимальный домен: efsp_scenario, efsp_scenario_parameter, efsp_family_person, efsp_family_relation, efsp_household, efsp_household_member, efsp_life_stage, efsp_life_event, efsp_person_event_plan, efsp_education_stage, efsp_education_plan, efsp_housing_asset, efsp_space_requirement, efsp_land_plot, efsp_crop_profile, efsp_crop_plan, efsp_livestock_profile, efsp_livestock_plan, efsp_storage_capacity, efsp_resource_need, efsp_resource_capacity, efsp_self_sufficiency_target, efsp_self_sufficiency_result, efsp_financial_assumption, efsp_financial_projection, efsp_risk, efsp_decision_packet, efsp_plan_fact, efsp_source_registry, efsp_import_batch и efsp_import_error.'},
+{p:'Все доменные таблицы содержат entity, rowid, object_uuid, node_uuid, scenario_id, datec, tms, пользователя изменения, status и source_ref там, где применимо.'},
+{h:1,t:'19. События интеграции'},
+{p:'Минимальные типы: EFSP.SCENARIO.CREATED, EFSP.SCENARIO.CALCULATED, EFSP.NEED.CREATED, EFSP.NEED.CHANGED, EFSP.EVENT.CONFIRMED, EFSP.CAPACITY.RISK, HEALTH.NUTRIENT.GAP, PROVISION.COVERAGE.PROPOSED, PROVISION.COVERAGE.CONFIRMED, FARM.HARVEST.RECORDED, EDUCATION.MILESTONE.DUE и ORBIS.NODE.HOUSEHOLD.CREATED.'},
+{p:'Пакет содержит event_uuid, correlation_id, node_uuid, object_uuid, event_type, occurred_at, payload_version, payload_hash, source_module и privacy_class.'}
+);
